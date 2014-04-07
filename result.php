@@ -10,14 +10,9 @@ $shorturl = isset( $return['shorturl'] ) ? $return['shorturl'] : '';
 $message  = isset( $return['message'] ) ? $return['message'] : '';
 $title    = isset( $return['title'] ) ? $return['title'] : '';
 
-$resp = recaptcha_check_answer (ISQ::$recaptcha['private'],
-								$_SERVER["REMOTE_ADDR"],
-								$_POST["recaptcha_challenge_field"],
-								$_POST["recaptcha_response_field"]);
-
-if (!$resp->is_valid) {
+if (!empty($_REQUEST['botcheck'])) {
 	// What happens when the CAPTCHA was entered incorrectly
-	die ( '<p class="error" title="' . $resp->error . '">' . yourls__( 'The reCAPTCHA wasn\'t entered correctly. Go back and try it again.', 'isq_translation' ) . '</p></div></div>' );
+	die ( '<p class="error" title="' . $resp->error . '">' . yourls__( 'Are you a bot? A hidden field was filled in. Go back and try again.', 'isq_translation' ) . '</p></div></div>' );
 }
 
 ?>
