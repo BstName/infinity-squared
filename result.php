@@ -15,7 +15,7 @@ if (!empty($_REQUEST['botcheck'])) {
 	die ( '<p class="error" title="' . $resp->error . '">' . yourls__( 'Are you a bot? A hidden field was filled in. Go back and try again.', 'isq_translation' ) . '</p></div></div>' );
 }
 
-file_put_contents("output.txt", "\r\n" . $url . " (" . $keyword . $title . ")" , FILE_APPEND);
+file_put_contents("output.txt", "\r\n" . $url . " (" . " Keyword: " . $keyword . " Title: " . $title . " Botcheck: " . $botcheck . ")" , FILE_APPEND);
 
 ?>
 
