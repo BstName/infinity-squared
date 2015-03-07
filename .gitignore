@@ -10,8 +10,9 @@
 !footer.php
 !.gitignore
 
-# Specifically ignore the config file
+# Specifically ignore the config file and the DS_Store
 public/config.php
-
-# And the OS X files
 public/.DS_Store
+
+# Also specifically ignore the phpqrcode cache
+public/phpqrcode/cache/*

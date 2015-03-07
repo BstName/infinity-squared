@@ -1,54 +1,47 @@
 <?php
 
-// Copy and rename your file to config.php in this directory to edit your settings
+// Copy and rename your file to config.php in the /public/ directory to edit your settings
+// 0, FALSE or '' to disable
+// Pretty much everything else to enable, such as 1, TRUE or any string
 
-// General settings
-// 1 to enable, 0 to disable
+// GENERAL SETTINGS
 ISQ::$general = array(
 	'name' => 'URL shortener', // The name of your URL shortener
-	'qr' => 1, // Do you want to display a QR code?
+	'qr' => TRUE, // Do you want to display a QR code?
 	'clipboard' => 1 // Do you want to enable zeroClipboard? (uses flash)
 );
 
-// Menu- The width of ∞² menu allows you to have about 10 links
-// Leave empty to disable
+// MENU LINKS
+// Add more comma seperated arrays to add more links
 ISQ::$links = array(
-	'name_1' => 'Tom Slominski',
-	'url_1' => 'http://tomslominski.net/',
-	'name_2' => 'Get ∞²!',
-	'url_2' => 'https://github.com/tomslominski/infinity-squared/',
-	'name_3' => '',
-	'url_3' => '',
-	'name_4' => '',
-	'url_4' => '',
-	'name_5' => '',
-	'url_5' => '',
-	'name_6' => '',
-	'url_6' => '',
-	'name_7' => '',
-	'url_7' => '',
-	'name_8' => '',
-	'url_8' => '',
-	'name_9' => '',
-	'url_9' => '',
-	'name_10' => '',
-	'url_10' => ''
+	array(
+		'name' => ISQ::$general['name'],
+		'link' => YOURLS_SITE
+	),
+	array(
+		'name' => 'Tom Slominski',
+		'link' => 'http://tomslominski.net/'
+	),
+	array(
+		'name' => 'Get ∞²!',
+		'link' => 'https://github.com/tomslominski/infinity-squared/'
+	)
 );
 
-// Social sharing
-// 1 to enable, 0 to disable
+// SOCIAL SHARING
 ISQ::$social = array(
-	'facebook' => 1,
-	'twitter' => 1,
-	'plus' => 1,
-	'linkedin' => 1,
-	'tumblr' => 1
+	'facebook' => TRUE,
+	'twitter' => TRUE,
+	'plus' => TRUE,
+	'linkedin' => TRUE,
+	'tumblr' => TRUE
 );
 
-// reCAPTCHA API keys
+// reCAPTCHA API KEYS
 // Get yourls from https://www.google.com/recaptcha/admin
 ISQ::$recaptcha = array(
-	'public' => '',
-	'private' => ''
+	'sitekey' => '',
+	'secret' => ''
 );
+
 ?>
